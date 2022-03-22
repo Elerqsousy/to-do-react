@@ -6,24 +6,28 @@ import TodosList from './TodosList';
 
 class TodoContainer extends React.Component {
   state = {
-    todos: [
-      {
-        id: uuid(),
-        title: 'Setup development environment',
-        completed: true,
-      },
-      {
-        id: uuid(),
-        title: 'Develop website and add content',
-        completed: false,
-      },
-      {
-        id: uuid(),
-        title: 'Deploy to live server',
-        completed: false,
-      },
-    ],
+    todos: [],
   };
+
+  componentDidMount() {
+    const tempData = localStorage.getItem("todos")
+     if (tempData) {
+         this.setState({
+             todos: JSON.parse(tempData)
+         })
+     }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+      if (prevState !== this.state.todos) {
+          const tempData = JSON.stringify(this.state.todos)
+          localStorage.setItem("todos", tempData)
+      }
+  }
+
+  componentWillUnmount() {
+    console.log("Cleaning up...")
+  }
 
   handleChange = (id) => {
     this.setState((prevState) => ({

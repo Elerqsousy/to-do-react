@@ -9,7 +9,7 @@
   margin-right: 15px;
 }
 
-.item button {
+.delete {
   font-size: 13px;
   background: #f1f3f4;
   border: none;
@@ -27,4 +27,17 @@
   color: #595959;
   opacity: 0.4;
   text-decoration: line-through;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
+  justify-content: space-evenly;
 }

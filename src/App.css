@@ -54,7 +54,8 @@ body {
   text-transform: capitalize;
   cursor: pointer;
   font-weight: 600;
-  margin-right: 10px;
+  height: 50px;
+  width: 50px;
 }
 
 .input-text,
@@ -77,4 +78,10 @@ body {
 .todo-header {
   padding: 20px 0;
   line-height: 1.5em;
+}
+
+.input-submit svg {
+  color: darkcyan;
+  font-size: 20px;
+  margin-top: 2px;
 }

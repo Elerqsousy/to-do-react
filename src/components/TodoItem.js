@@ -1,58 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import EditForm from './EditForm';
 import styles from './TodoItem.module.css';
 
-class TodoItem extends React.Component {
-  state = {
-    editing: false,
+const TodoItem = (props) => {
+  const [editing, setEditing] = useState(false);
+
+  useEffect(() => {
+    return () => {};
+  }, []);
+
+  const handleEditing = (e) => {
+    setEditing(true);
   };
 
-  componentWillUnmount() {
-    console.log("Cleaning up...")
-  }
-
-  handleEditing = (e) => {
-    this.setState({
-      editing: true,
-    });
-  };
-
-  handleUpdatedDone = (e) => {
+  const handleUpdatedDone = (e) => {
     e.preventDefault();
-    this.setState({ editing: false });
+    setEditing(false);
   };
 
-  render() {
-    const { completed, id, title } = this.props.todo;
-    return (
-      <li className={styles.item}>
-        {this.state.editing ? (
-          <EditForm
-            handleUpdatedDone={this.handleUpdatedDone}
-            title={title}
-            setUpdate={this.props.setUpdate}
-            identifier={id}
-          />
-        ) : (
-          <div onDoubleClick={this.handleEditing}>
+  const { completed, id, title } = props.todo;
+  return (
+    <li className={styles.item}>
+      {editing ? (
+        <EditForm
+          handleUpdatedDone={handleUpdatedDone}
+          title={title}
+          setUpdate={props.setUpdate}
+          identifier={id}
+        />
+      ) : (
+        <div onDoubleClick={handleEditing}>
           <input
             type='checkbox'
             className={styles.checkbox}
             checked={completed}
-            onChange={() => this.props.handleChangeProps(id)}
+            onChange={() => props.handleChangeProps(id)}
           />
           <button
-            onClick={() => this.props.deleteTodoProps(id)}
+            onClick={() => props.deleteTodoProps(id)}
             className={styles.delete}
           >
             Delete
           </button>
           <span className={completed ? styles.completed : null}>{title}</span>
         </div>
-        )}
-      </li>
-    );
-  }
-}
+      )}
+    </li>
+  );
+};
 
 export default TodoItem;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import EditForm from './EditForm';
 import styles from './TodoItem.module.css';
+import { FaTrash } from 'react-icons/fa';
 
 const TodoItem = (props) => {
   const [editing, setEditing] = useState(false);
@@ -40,7 +41,7 @@ const TodoItem = (props) => {
             onClick={() => props.deleteTodoProps(id)}
             className={styles.delete}
           >
-            Delete
+            <FaTrash />
           </button>
           <span className={completed ? styles.completed : null}>{title}</span>
         </div>

@@ -85,3 +85,16 @@ body {
   font-size: 20px;
   margin-top: 2px;
 }
+
+li a.active {
+  color: orangered;
+}
+
+li a.active:hover, li a:hover {
+  text-decoration: underline;
+}
+
+li a {
+  color: #444;
+  text-decoration: none;
+}

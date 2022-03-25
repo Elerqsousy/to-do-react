@@ -1,0 +1,46 @@
+.item {
+  font-size: 1.2rem;
+  list-style-type: none;
+  padding: 17px 0px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.checkbox {
+  margin-right: 15px;
+}
+
+.delete {
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+  float: right;
+  outline: none;
+  height: 40px;
+  width: 40px;
+  background: none;
+}
+
+.delete svg {
+  color: rgb(235, 50, 17);
+  font-size: 16px ;
+}
+
+.completed {
+  font-style: italic;
+  color: #595959;
+  opacity: 0.4;
+  text-decoration: line-through;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #dfdfdf;
+}
+
+.formContainer {
+  width: 100%;
+  display: flex;
+  box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.38);
+  justify-content: space-evenly;
+}
